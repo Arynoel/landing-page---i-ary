@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fundo de Linhas Quadradas Movendo</title>
+  <style>
+    :root{
+      /* Ajustáveis */
+      --bg:#061021;            /* cor de fundo */
+      --line:#ffffff;          /* cor das linhas */
+      --line-alpha:0.12;       /* opacidade das linhas */
+      --gap:80px;              /* distância entre linhas (tamanho do quadrado) */
+      --thickness:2px;        /* espessura das linhas */
+      --speed:35s;            /* duração da animação (quanto menor = mais rápido) */
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      font-family:system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden; /* evita scroll por causa da animação */
+    }
+
+    /* Container que ocupa a tela inteira */
+    .stage{
+      position:fixed;
+      inset:0;
+      display:grid;
+      place-items:center;
+      background:var(--bg);
+    }
+
+    /* Usamos duas camadas de background para criar um grid (linhas verticais + horizontais).
+       Cada camada é um linear-gradient transparente + linha; o repeating-linear-gradient repete a linha
+       em intervalos definidos por --gap e tem espessura --thickness.
+       Animamos a posição de cada camada para dar efeito de movimento em direções diferentes. */
+    .grid{
+      position:absolute;
+      inset:0;
+      pointer-events:none; /* não atrapalha cliques */
+      background-image:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 calc(var(--gap) - var(--thickness)), rgba(255,255,255,var(--line-alpha)) calc(var(--gap) - var(--thickness)) calc(var(--gap))),
+        repeating-linear-gradient(0deg,  rgba(255,255,255,0) 0 calc(var(--gap) - var(--thickness)), rgba(255,255,255,var(--line-alpha)) calc(var(--gap) - var(--thickness)) calc(var(--gap)));
+      background-size: 100% 100%;
+      mix-blend-mode:screen; /* deixa as linhas mais interessantes sobre fundos escuros */
+      transform-origin:center;
+      animation: moveGrid1 var(--speed) linear infinite;
+    }
+
+    /* Sobreposição com movimento contrário e leve rotação para gerar variação visual */
+    .grid::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 calc(var(--gap) - calc(var(--thickness) * 0.6)), rgba(255,255,255,calc(var(--line-alpha) * 0.6)) calc(var(--gap) - calc(var(--thickness) * 0.6)) calc(var(--gap))),
+        repeating-linear-gradient(0deg,  rgba(255,255,255,0) 0 calc(var(--gap) - calc(var(--thickness) * 0.6)), rgba(255,255,255,calc(var(--line-alpha) * 0.6)) calc(var(--gap) - calc(var(--thickness) * 0.6)) calc(var(--gap)));
+      transform: rotate(5deg) scale(1.05);
+      mix-blend-mode:screen;
+      animation: moveGrid2 calc(var(--speed) * 0.9) linear infinite;
+      opacity:0.9;
+    }
+
+    /* Suaviza pixels em telas pequenas */
+    @media (max-width:600px){
+      :root{ --gap:56px; --thickness:1.6px; --speed:28s; }
+    }
+
+    /* Animações: simplesmente deslocam a posição do background para criar ilusão de movimento */
+    @keyframes moveGrid1{
+      from{ background-position: 0 0, 0 0; }
+      to{   background-position: calc(var(--gap) * -1) calc(var(--gap) * -1), calc(var(--gap) * 1) calc(var(--gap) * 1); }
+    }
+    @keyframes moveGrid2{
+      from{ background-position: 0 0, 0 0; }
+      to{   background-position: calc(var(--gap) * 1) calc(var(--gap) * -1), calc(var(--gap) * -1) calc(var(--gap) * 1); }
+    }
+
+    /* Exemplo de conteúdo central para demonstrar sobreposição */
+    .content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:24px 28px;
+      border-radius:12px;
+      backdrop-filter: blur(6px) saturate(1.1);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      color: #e8f0ff;
+    }
+
+    h1{ margin:0 0 8px 0; font-size:20px; letter-spacing:0.6px; }
+    p{ margin:0; opacity:0.85; font-size:13px }
+
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid" aria-hidden="true"></div>
+
+    <div class="content">
+      <h1>Fundo: Linhas Quadradas em Movimento</h1>
+      <p>Altere as variáveis CSS no :root para ajustar cor, espaçamento e velocidade.</p>
+    </div>
+  </div>
+
+  <!-- Pequeno script para demonstrar como alterar as variáveis em tempo real (opcional) -->
+  <script>
+    // Exemplo: mudar cor a cada 6s (apenas para demo). Comente se não quiser.
+    /*
+    const root = document.documentElement;
+    const palette = ['#061021','#08122a','#0b1a2f','#001f3f'];
+    let i = 0;
+    setInterval(()=>{
+      i = (i+1) % palette.length;
+      root.style.setProperty('--bg', palette[i]);
+    },6000);
+    */
+  </script>
+</body>
+</html>
