@@ -2,363 +2,203 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Curriculo - iã Abreu</title>
-
-  <link rel="shortcut icon" href="imagem/Iconsmind-Outline-Internet.48 (1).png" type="imagem/icon">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feliz Aniversário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-     
-body {
-margin: 0;
-padding: 0;
-height: 100%;
-background: repeating-linear-gradient(
-45deg, /* Ângulo das listras */
-#ffffff 0px, /* Listra branca */
-#ffffff 40px, /* Largura da listra branca */
-#f0f0f0 40px, /* Listra cinza clara */
-#f0f0f0 80px /* Largura da listra cinza */
-);
-}
     :root{
-      --bg-1: #041028; /* very dark blue */
-      --bg-2: #062b57; /* deep blue */
-      --accent-1: #0ea5ff; /* bright cyan-blue */
-      --accent-2: #3bb7ff; /* softer cyan */
-      --muted: rgba(230,238,248,0.7);
-      --card-bg: rgba(255,255,255,0.04);
-      --glass: rgba(255,255,255,0.06);
-      --radius:16px;
-      --gap:22px;
-      --max-width:1300px;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --bg:#0b1220; --paper:#fffdf7; --ink:#1b1b1b; --accent:#ff6b6b; --gold:#d4af37;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#071020 0%, #0b1220 60%, #071225 100%);color:var(--ink)}
+
+    .container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+
+    /* Paper */
+    .paper-wrap{width:900px;max-width:96%;position:relative}
+    .seal{position:absolute;right:28px;top:28px;background:linear-gradient(135deg,var(--accent),#ffd166);width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b1220;box-shadow:0 10px 40px rgba(0,0,0,0.6);transform:rotate(-12deg)}
+
+    .paper{
+      background:var(--paper);border-radius:12px;padding:40px 56px 56px;box-shadow:0 20px 60px rgba(2,6,23,0.6);position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06)
     }
 
-    /* Reset */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      min-height:100vh;
-      height:100vh;
-      font-size:16px;
-      color:#e6f0fb;
-      background: linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow:hidden;
-      display:flex;align-items:center;justify-content:center;padding:28px;
-    }
+    /* corner paper texture */
+    .paper:before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background-image:linear-gradient(transparent 30%, rgba(0,0,0,0.02) 31%);opacity:0.9;pointer-events:none}
 
-    /* Background effects: diagonal lines + squares */
-    .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    header.letter-head{display:flex;align-items:center;gap:20px;margin-bottom:18px}
+    .logo-ico{width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;background:linear-gradient(135deg,var(--accent),#ffd166);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+    .meta{color:#5b616b}
 
-    /* Animated diagonal lines using repeating-linear-gradient on pseudo element */
-    .bg-layer::before{
-      content:"";
-      position:absolute;inset:0;
-      background-image: repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,0.02) 0px,
-        rgba(255,255,255,0.02) 1px,
-        transparent 1px,
-        transparent 28px
-      );
-      opacity:0.25;
-      transform:translate3d(0,0,0);
-      animation: linesMove 30s linear infinite;
-      mix-blend-mode:overlay;
-      filter: blur(0.3px) contrast(1);
-    }
-    @keyframes linesMove{
-      from{transform:translateX(-20%)}
-      to{transform:translateX(20%)}
-    }
+    .greeting{font-family:'Great Vibes', cursive;font-size:48px;color:var(--ink);margin:6px 0}
+    .subtitle{color:#6b7280;margin-top:6px}
 
-    /* SVG-ish soft gradient glow */
-    .bg-glow{
-      position:absolute;inset:0;background:radial-gradient(600px 300px at 15% 20%, rgba(59,183,255,0.12), transparent 10%),
-                                              radial-gradient(500px 280px at 85% 80%, rgba(14,165,255,0.09), transparent 12%);
-      z-index:0;
-      pointer-events:none;
-    }
+    /* letter body */
+    .body{margin-top:18px;line-height:1.6;color:#111827;font-size:18px}
+    .lead-line{font-size:20px;font-weight:600;margin-bottom:12px}
 
-    /* Moving translucent squares */
-    .square{position:absolute;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));backdrop-filter: blur(2px);border-radius:6px;transform:translateY(0);will-change:transform,opacity}
+    .signature{margin-top:28px;display:flex;align-items:center;gap:18px}
+    .sig-name{font-family:'Great Vibes',cursive;font-size:28px;color:var(--accent)}
+    .sig-title{color:#6b7280}
 
-    /* Container */
-    .wrap{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-    .cv{width:100%;height:85vh;max-width:var(--max-width);display:grid;grid-template-columns:360px 1fr;gap:var(--gap);align-items:stretch}
+    /* decorative */
+    .ornament{height:12px;margin:16px 0;background:linear-gradient(90deg,#f7c59f, #ffd166);border-radius:6px;opacity:0.9}
 
-    @media (max-width:980px){.cv{grid-template-columns:320px 1fr}}
-    @media (max-width:820px){.cv{grid-template-columns:1fr;grid-auto-rows:1fr;height:100%;padding-bottom:18px}}
+    /* envelope animation */
+    .envelope{position:absolute;left:-70px;bottom:-70px;width:240px;height:160px;transform:rotate(-18deg);}
+    .env-back{width:100%;height:100%;background:linear-gradient(135deg,#ffffff,#fff8f2);border-radius:8px;box-shadow:0 12px 30px rgba(2,6,23,0.6);position:relative;overflow:hidden}
+    .env-flap{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(180deg,#ffd8c3,#ffdede);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transition:transform .9s cubic-bezier(.2,.9,.2,1)}
+    .env-back:hover .env-flap{transform:translateY(-8px) rotate(-6deg)}
 
-    /* Glass panels */
-    .panel, .content{
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:0 10px 30px rgba(2,6,23,0.6);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px) saturate(1.05);
-      overflow:auto;
-      min-height:0;
-    }
+    /* floating confetti */
+    .confetti-piece{position:absolute;width:10px;height:14px;opacity:0.95;border-radius:2px;transform-origin:center;background:linear-gradient(180deg,#ff6b6b,#ffd166);animation:flo 6s linear infinite}
+    @keyframes flo{0%{transform:translateY(-40vh) rotate(0);}50%{transform:translateY(10vh) rotate(180deg);}100%{transform:translateY(40vh) rotate(360deg)}}
 
-    .panel{padding-bottom:28px}
-    .photo{width:130px;height:130px;border-radius:12px;overflow:hidden;border:3px solid rgba(255,255,255,0.06);margin-bottom:18px}
-    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    /* handwriting reveal */
+    .handwriting{display:block;font-family:'Great Vibes',cursive;font-size:26px;color:var(--ink);border-right:2px solid rgba(0,0,0,0.08);white-space:nowrap;overflow:hidden}
+    .typewriter{animation:typing 4s steps(40,end), blink .8s step-end infinite}
+    @keyframes typing{from{width:0} to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
 
-    h1{font-size:24px;margin:0 0 6px 0}
-    .role{color:var(--muted);margin:0 0 14px 0}
-    .contact{font-size:14px;color:var(--muted);line-height:1.6}
+    /* controls */
+    .controls{display:flex;gap:10px;position:relative;margin-top:18px}
+    .btn{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ffd166);border:none;color:#0b1220;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(255,107,107,0.12)}
+    .btn.secondary{background:transparent;border:1px solid rgba(0,0,0,0.06);color:#333}
 
-    .section-title{font-size:12px;color:var(--accent-2);letter-spacing:1px;margin:18px 0 8px}
-    .section-title small{color:var(--muted);margin-left:8px;font-weight:400}
-
-    .skill{display:flex;align-items:center;justify-content:space-between;margin:10px 0}
-    .skill span{font-size:14px}
-    .skill .bar{width:60%;height:10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));overflow:hidden}
-    .skill .bar > i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
-
-    .chip{display:inline-block;padding:6px 10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:999px;font-size:13px;color:var(--muted);margin:6px 6px 0 0}
-
-    /* Content details */
-    .content{display:flex;flex-direction:column}
-    .about p{margin-top:6px;color:#dceef3;line-height:1.5}
-    .job{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
-    .job h3{margin:0;font-size:17px}
-    .meta{color:var(--muted);font-size:13px;margin:8px 0}
-
-    .projects .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
-
-    /* Buttons & utilities */
-    .right-top{display:flex;justify-content:flex-end}
-    .btn{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
-    .btn:hover{transform:translateY(-2px)}
-
-    /* Footer */
-    footer{margin-top:18px;font-size:12px;color:var(--muted)}
-
-    /* Print fallback */
-    @media print{body{background:white;color:black}.bg-layer{display:none}.panel,.content{box-shadow:none;border-radius:0}}
-
+    /* responsive */
+    @media (max-width:880px){.envelope{display:none}}
   </style>
 </head>
 <body>
-  <!-- Background: lines + glow + squares -->
-  <div class="bg-layer" aria-hidden="true">
-    <div class="bg-glow"></div>
-  </div>
+  <div class="container">
+    <div class="paper-wrap">
 
-  <div class="wrap">
-    <main class="cv" role="main">
- 
-      <aside class="panel" aria-label="Informações pessoais">
-        <div class="right-top print-hide">
-          <button class="btn" onclick="window.print()">Imprimir / Salvar PDF</button>
-        </div>
+      <div class="seal">🎉</div>
 
-        <div class="photo" aria-hidden="true">
-          <img src="imagem/Imagem do WhatsApp de 2025-10-23 à(s) 20.17.01_1e979d32.jpg" alt="senta mexendo no computador">
-        </div>
-
-        <h1 id="name">iã ary noel moura abreu</h1>
-        <div class="role"> 👨‍💻 </div>
-
-        <div class="contact">
-          <div> Cuiabá, MT</div>
-          <div> ianm54273@gmail.com</div>
-          <div> (65) 99280-3970</div>
+      <article class="paper" id="paper">
+        <header class="letter-head">
+          <div class="logo-ico"><img src="Nova pasta/favicon.ico" alt=""></div>
           <div>
-            <a style="color: #dceef3a2;" href="https://github.com/Arynoel" target="_self">https://github.com/Arynoel</a>
+            <div class="greeting" id="greeting">Feliz Aniversário, Filha de Deus</div>
+            <div class="subtitle">JESUS TE AMA E NUNCA VAI TE ABANDONAR!</div>
+          </div>
+        </header>
+
+        <div class="body">
+          <div class="lead-line">AS PROMESSAS DE DEUS NUNCA FALHARÃO, POIS TUDO AQUILO QUE ELE PROMETEU VAI ACONTECER.</div>
+
+          <p>JESUS <strong id="insideName">PARA CAMILLY</strong>,</p>
+          <p>"Tudo tem o seu tempo determinado, e há tempo para todo o propósito debaixo do céu." — Eclesiastes 3:1</p>
+
+          <div class="ornament" aria-hidden="true"></div>
+
+          <p>Uma lembrança: a sua célula vai multiplicar muito rápido! Saiba que Deus está cuidando de cada detalhe da sua vida.
+          Lembre-se: tudo faz parte do processo. Mergulhe na presença de Deus e desfrute dEle.
+          Você é escolhida e foi chamada para impactar uma geração.</p>
+
+          <p>DEUS ABENÇOE E NUNCA DESISTA!</p>
+
+          <p style="margin-top:8px"><em id="personalNote">FELIZ ANIVERSÁRIO!</em></p>
+
+          <div class="signature">
+            <div>
+              <div class="sig-name" id="fromName">Com carinho,</div>
+              <div class="sig-title">— JESUS</div>
+            </div>
           </div>
         </div>
 
-        <div class="section-title">Habilidades</div>
-        <div class="skill"><span>HTML5 / CSS3</span><div class="bar"><i style="width:30%"></i></div></div>
-        <div class="skill"><span>Suporte & Atendimento</span><div class="bar"><i style="width:88%"></i></div></div>
-
-        <div class="section-title">Tecnologias</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS3</span>
-          <span class="chip">RD Station</span>
-          <span class="chip">Atendimento</span>
-          <span class="chip">Suporte Técnico</span>
-          
+        <div class="controls">
+          <button class="btn" id="printBtn">🖨️ Imprimir</button>
+          <button class="btn secondary" id="downloadBtn">📸 Baixar</button>
+          <button class="btn secondary" id="shareBtn">✉️ Compartilhar</button>
         </div>
 
-        <div class="section-title">Idiomas</div>
-        <div class="contact">
-          <div>Português — Nativo</div>
-          <div>Inglês — iniciante</div>
+        <!-- decorative confetti pieces -->
+        <div class="confetti-piece" style="left:10%;top:-10vh;background:#ff6b6b;animation-delay:0s"></div>
+        <div class="confetti-piece" style="left:25%;top:-8vh;background:#ffd166;animation-delay:0.8s;transform:scale(1.1)"></div>
+        <div class="confetti-piece" style="left:60%;top:-12vh;background:#6bd3ff;animation-delay:0.4s"></div>
+        <div class="confetti-piece" style="left:80%;top:-6vh;background:#b28bff;animation-delay:1.2s"></div>
+      </article>
+
+      <div class="envelope" aria-hidden="true">
+        <div class="env-back">
+          <div class="env-flap"></div>
         </div>
+      </div>
 
-      </aside>
-
-      <section class="content">
-        <div class="about">
-          <h2 style="margin:0 0 8px">Resumo profissional</h2>
-          <p> Busco uma oportunidade no mercado de trabalho com o objetivo de aprender e desenvolver novas habilidades.
-        Embora ainda não tenha experiência profissional formal, estou em busca de novos desafios na área de tecnologia.
-        Acredito que, mesmo sem atuação prévia no mercado, posso agregar valor à empresa desde o início, graças à minha dedicação, vontade de aprender.</p>
-        </div>
-        
-
-        <div class="section-title">Experiência</div>
-        <div class="experience">
-          <article class="job">
-            <h3>Suporte de sistema — Botdizzer</h3>
-            <div class="meta">2024 - 2025</div>
-            <p>Prestava suporte ao sistema usando comandos básicos e auxiliando o cliente </p>
-          </article>
-          <br>
-
-          <article class="job">
-            
-            <h3> Prospeção - Notalize Contador</h3>
-            
-            <div class="meta">2024 - 2025</div>
-            <p> Fazia Prospeção de cliente atráves de ligação. Propectava mais 5 cliente por dia que foi um diferencial.</p>
-          
-        </article>
-        <br>
-          
-        </div>
-
-        <div style="height:10px"></div>
-
-        <div class="edu">
-          <div class="job">
-            <h3>Implementação de sistema - Notalize Contador</h3>
-            <div class="meta">2023</div>
-            <p>Fazia treinamento com o cliente ajudando ele utilizar o sistema fiscal.</p>
-          </div>
-        </div>
-        <br>
-        
-        <div style="height:10px"></div>
-
-        <div class="projects">
-          
-        <div class="project">
-            <strong> Suporte ao cliente - Botdizzer</strong>
-            <div class="meta">2024 - 2025</div>
-            <p> Prestava suporte ao cliente atráves de cal e WhatsApp.</p>
-          
-        </div>
-
-        <div class="section-title">Educação</div>
-          
-        <div class="job">
-            
-            <h3>Formação</h3>
-
-            <div class="meta"></div>
-            <p>Ensino médio completo - 2022</p>
-            <p>Informática Básica - Senai</p>
-
-        </div>      
-        
-        <div class="section-title">Cursos & Certificações</div>
-        
-        <div class="contact" >
-        
-        <h3> Cursos</h3>
-
-          <div>Certificação HTML5 — Plataforma [Curso em video]</div>
-          <div>Curso de CSS Avançado — Plataforma [Curso em video]</div>
-          <div>Cursando de Java — Plataforma [Curso em video]</div>
-
-        </div>
-
-        
-
-      </section>
-
-    </main>
+    </div>
   </div>
 
   <script>
-    // Editable name
-    document.getElementById('name').addEventListener('click', function(){
-      const current = this.textContent;
-      const novo = prompt('Digite seu nome completo:', current);
-      if(novo) this.textContent = novo;
+    // Personalização simples
+    const toName = 'Camilly';
+    const fromName = 'Jesus';
+    document.getElementById('insideName').textContent = toName;
+    document.getElementById('fromName').textContent = fromName;
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', ()=>{ window.print(); });
+
+    // Share
+    document.getElementById('shareBtn').addEventListener('click', ()=>{
+      const subject = encodeURIComponent('Feliz Aniversário — ' + toName);
+      const body = encodeURIComponent(document.querySelector('.lead-line').textContent + '\n\n' + 
+        Array.from(document.querySelectorAll('.body p')).map(p=>p.textContent).join('\n\n'));
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
     });
 
-    // Create moving squares dynamically
-    const total = 26;
-    for(let i=0;i<total;i++){
-      const s = document.createElement('div');
-      s.className = 'square';
-      const size = 10 + Math.random()*70;
-      s.style.width = size + 'px';
-      s.style.height = size + 'px';
-      s.style.left = Math.random()*100 + '%';
-      s.style.top = Math.random()*100 + '%';
-      s.style.opacity = 0.1 + Math.random()*0.35;
-      const dur = 12 + Math.random()*28;
-      s.style.transition = `transform ${dur}s linear`;
-      // initial transform
-      s.style.transform = `translateY(${ (Math.random()*30 - 60)}px) rotate(${Math.random()*360}deg)`;
-      document.body.appendChild(s);
+    // Download como imagem (SVG to PNG)
+    document.getElementById('downloadBtn').addEventListener('click', async ()=>{
+      const paper = document.querySelector('.paper');
+      const rect = paper.getBoundingClientRect();
+      const svg = `data:image/svg+xml;charset=utf-8,` + encodeURIComponent(
+        `<svg xmlns='http://www.w3.org/2000/svg' width='${rect.width}' height='${rect.height}'>`+
+        `<foreignObject width='100%' height='100%'>`+
+        `<div xmlns='http://www.w3.org/1999/xhtml'>` + paper.outerHTML.replace(/#/g,'%23') + `</div>`+
+        `</foreignObject></svg>`
+      );
+      const img = new Image();
+      img.onload = ()=>{
+        const canvas = document.createElement('canvas');
+        canvas.width = rect.width; canvas.height = rect.height;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage(img,0,0);
+        const link = document.createElement('a');
+        link.download = 'carta-aniversario.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      };
+      img.src = svg;
+    });
 
-      // animate using requestAnimationFrame to make it smooth
-      (function(el, d){
-        const startX = parseFloat(el.style.left);
-        const dir = Math.random() > 0.5 ? 1 : -1;
-        const amplitude = 6 + Math.random()*18;
-        let t = Math.random()*1000;
-        function tick(){
-          t+=0.5;
-          const y = Math.sin(t*0.01)*amplitude + ( (performance.now()/1000) % (window.innerHeight + 600) ) - 300;
-          const rot = (performance.now()/50) % 360;
-          el.style.transform = `translateY(${y}px) rotate(${rot}deg)`;
-          requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      })(s, dur);
-    }
-
-    // Add subtle moving overlay lines using canvas for crisp lines (optional)
-    (function createLines(){
-      const canvas = document.createElement('canvas');
-      canvas.style.position = 'fixed';
-      canvas.style.left = 0; canvas.style.top = 0;
-      canvas.style.zIndex = 0; canvas.style.pointerEvents = 'none';
-      document.body.appendChild(canvas);
-      const ctx = canvas.getContext('2d');
-      function resize(){canvas.width = innerWidth; canvas.height = innerHeight}
-      resize(); window.addEventListener('resize', resize);
-      const lines = [];
-      for(let i=0;i<10;i++){
-        lines.push({x: Math.random()*innerWidth, y: Math.random()*innerHeight, w: 1 + Math.random()*2, speed: 0.2 + Math.random()*0.8, angle: (Math.PI/8) + Math.random()*Math.PI/4});
-      }
-      function draw(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        lines.forEach(l=>{
-          l.x += Math.cos(l.angle)*l.speed;
-          l.y += Math.sin(l.angle)*l.speed;
-          // wrap
-          if(l.x > canvas.width + 200) l.x = -200;
-          if(l.y > canvas.height + 200) l.y = -200;
-          ctx.beginPath();
-          ctx.moveTo(l.x-200, l.y-200);
-          ctx.lineTo(l.x+200, l.y+200);
-          ctx.strokeStyle = 'rgba(11,88,150,0.08)';
-          ctx.lineWidth = l.w;
-          ctx.stroke();
-        });
-        requestAnimationFrame(draw);
-      }
-      requestAnimationFrame(draw);
+    // Efeito de escrita
+    (function revealPersonalNote(){
+      const el = document.getElementById('personalNote');
+      const txt = el.textContent;
+      el.textContent = '';
+      const span = document.createElement('span');
+      span.className = 'handwriting typewriter';
+      el.appendChild(span);
+      let i=0;
+      function step(){ if(i<=txt.length){ span.textContent = txt.slice(0,i); i++; setTimeout(step, 45); } }
+      setTimeout(step, 600);
     })();
 
+    // Confete animado
+    (function spawnConfetti(){
+      const colors = ['#ff6b6b','#ffd166','#6bd3ff','#b28bff','#9fe66b'];
+      for(let i=0;i<12;i++){
+        const d = document.createElement('div');
+        d.className='confetti-piece';
+        d.style.left = (Math.random()*90)+'%';
+        d.style.top = ( -20 - Math.random()*20)+'vh';
+        d.style.background = colors[Math.floor(Math.random()*colors.length)];
+        d.style.animationDuration = (4 + Math.random()*4)+'s';
+        d.style.animationDelay = (Math.random()*2)+'s';
+        document.body.appendChild(d);
+      }
+    })();
   </script>
 </body>
-
 </html>
-
-
-
